@@ -5,19 +5,20 @@ import re
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 IN_FILE = 'result.txt'
-
-# change directory to the one with the files to be changed
-parent_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
-parent_path = os.path.abspath(os.path.join(parent_path, os.pardir))
-DR_PATH = os.path.join(parent_path, 'input','detection-results')
-#print(DR_PATH)
-os.chdir(DR_PATH)
-
-SEPARATOR_KEY = 'Enter Image Path:'
-IMG_FORMAT = '.jpg'
-
-outfile = None
 with open(IN_FILE) as infile:
+    # change directory to the one with the files to be changed
+    parent_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+    parent_path = os.path.abspath(os.path.join(parent_path, os.pardir))
+    DR_PATH = os.path.join(parent_path, 'input','detection-results')
+    #print(DR_PATH)
+    os.chdir(DR_PATH)
+
+    SEPARATOR_KEY = 'Enter Image Path:'
+    IMG_FORMAT = '.jpg'
+
+    outfile = None
+    print(os.getcwd())
+
     for line in infile:
         if SEPARATOR_KEY in line:
             if IMG_FORMAT not in line:
